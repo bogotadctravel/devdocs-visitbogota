@@ -1,0 +1,537 @@
+/* ─── Google Fonts: Poppins (usado en visitbogota.co) ─── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+/* ═══════════════════════════════════════════════════════
+   VARIABLES — Visit Bogotá Design System
+   ═══════════════════════════════════════════════════════ */
+:root {
+  /* Brand palette */
+  --vb-primary:    #35498e;
+  --vb-navy:       #314059;
+  --vb-navy-dark:  #1a2b4a;
+  --vb-accent:     #3f89de;
+  --vb-gold:       #FAC533;
+  --vb-dark:       #1c1f26;
+  --vb-bg:         #f4f6fb;
+  --vb-bg-card:    #ffffff;
+  --vb-muted:      #6b7280;
+  --vb-border:     #e5e7eb;
+
+  /* Infima overrides */
+  --ifm-color-primary:          #35498e;
+  --ifm-color-primary-dark:     #2f4180;
+  --ifm-color-primary-darker:   #2c3d78;
+  --ifm-color-primary-darkest:  #243262;
+  --ifm-color-primary-light:    #3b519c;
+  --ifm-color-primary-lighter:  #3e55a4;
+  --ifm-color-primary-lightest: #4a63b8;
+
+  /* Typography */
+  --ifm-font-family-base:     'Poppins', sans-serif;
+  --ifm-font-family-monospace: 'Fira Code', 'Cascadia Code', monospace;
+  --ifm-font-size-base:       16px;
+  --ifm-line-height-base:     1.7;
+  --ifm-font-weight-semibold: 600;
+
+  /* Layout */
+  --ifm-container-width:      1280px;
+  --ifm-container-width-xl:   1280px;
+  --ifm-spacing-horizontal:   24px;
+
+  /* Borders */
+  --ifm-global-radius:        12px;
+  --ifm-code-border-radius:   8px;
+  --ifm-button-border-radius: 9999px;
+
+  /* Sidebar */
+  --ifm-sidebar-width:        270px;
+
+  /* Code */
+  --ifm-code-font-size:       93%;
+  --docusaurus-highlighted-code-line-bg: rgba(53, 73, 142, 0.08);
+
+  /* Background */
+  --ifm-background-color:          #f4f6fb;
+  --ifm-background-surface-color:  #ffffff;
+
+  /* Heading */
+  --ifm-heading-color:         #1c1f26;
+  --ifm-heading-font-weight:   700;
+
+  /* Links */
+  --ifm-link-color:            #35498e;
+  --ifm-link-hover-color:      #3f89de;
+
+  /* Navbar */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow:           0 1px 0 0 #e5e7eb;
+  --ifm-navbar-height:           68px;
+  --ifm-navbar-link-color:       #1c1f26;
+  --ifm-navbar-link-hover-color: #35498e;
+
+  /* Footer */
+  --ifm-footer-background-color: #1a2b4a;
+  --ifm-footer-color:            rgba(255,255,255,0.75);
+  --ifm-footer-link-color:       rgba(255,255,255,0.75);
+  --ifm-footer-link-hover-color: #FAC533;
+
+  /* Table */
+  --ifm-table-stripe-background: #f4f6fb;
+  --ifm-table-border-color:      #e5e7eb;
+}
+
+/* ═══════════════════════════════════════════════════════
+   DARK MODE
+   ═══════════════════════════════════════════════════════ */
+[data-theme='dark'] {
+  --ifm-color-primary:          #7b9ed4;
+  --ifm-color-primary-dark:     #6080c8;
+  --ifm-color-primary-darker:   #4a63b8;
+  --ifm-color-primary-darkest:  #35498e;
+  --ifm-color-primary-light:    #96b4de;
+  --ifm-color-primary-lighter:  #aac4e6;
+  --ifm-color-primary-lightest: #c4d8f0;
+
+  --vb-bg:           #0f172a;
+  --vb-bg-card:      #1e293b;
+  --vb-border:       #334155;
+  --vb-muted:        #94a3b8;
+
+  --ifm-background-color:         #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  --ifm-heading-color:            #f1f5f9;
+  --ifm-navbar-background-color:  #1e293b;
+  --ifm-navbar-shadow:            0 1px 0 0 #334155;
+  --ifm-navbar-link-color:        #e2e8f0;
+  --ifm-table-stripe-background:  rgba(255,255,255,0.03);
+  --ifm-table-border-color:       #334155;
+  --docusaurus-highlighted-code-line-bg: rgba(123,158,212,0.12);
+}
+
+/* ═══════════════════════════════════════════════════════
+   GLOBAL BASE
+   ═══════════════════════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════════════════════════════════
+   NAVBAR — franja azul navy superior + logo
+   ═══════════════════════════════════════════════════════ */
+.navbar {
+  border-bottom: 3px solid var(--vb-primary);
+  padding: 0 24px;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--vb-primary) 0%, var(--vb-accent) 100%);
+}
+
+.navbar__brand {
+  gap: 0;
+}
+
+/* Logo — altura fija para que no quede pequeño */
+.navbar__logo {
+  height: 46px;
+}
+
+.navbar__logo img {
+  height: 46px !important;
+  width: auto !important;
+  max-height: 46px;
+}
+
+.navbar__title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--vb-primary);
+  letter-spacing: -0.01em;
+}
+
+.navbar__link {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.navbar__link--active {
+  color: var(--vb-primary) !important;
+  font-weight: 600;
+}
+
+.navbar__link:hover {
+  color: var(--vb-accent) !important;
+}
+
+/* Botón externo "visitbogota.co" en navbar */
+.navbar__items--right .navbar__link {
+  background: var(--vb-primary);
+  color: #fff !important;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.navbar__items--right .navbar__link:hover {
+  background: var(--vb-navy) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SIDEBAR
+   ═══════════════════════════════════════════════════════ */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--vb-border);
+}
+
+.menu__list {
+  font-size: 14px;
+}
+
+/* Categoría (label de grupo) */
+.menu__list-item-collapsible > .menu__link,
+.menu__list > .menu__list-item > .menu__link--sublist {
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--vb-gold) !important;
+  background: none !important;
+  padding: 12px 16px 4px;
+  margin-top: 8px;
+}
+
+/* Links individuales */
+.menu__link {
+  border-radius: 8px;
+  font-weight: 400;
+  color: var(--vb-dark);
+  transition: background 0.15s, color 0.15s;
+}
+
+.menu__link:hover {
+  background: rgba(53, 73, 142, 0.07);
+  color: var(--vb-primary);
+}
+
+/* border-left con inset para no desplazar layout */
+.menu__link--active {
+  background: rgba(53, 73, 142, 0.1) !important;
+  color: var(--vb-primary) !important;
+  font-weight: 600 !important;
+  box-shadow: inset 3px 0 0 var(--vb-primary);
+}
+
+/* Excluir categorías del indicador lateral (solo aplica a doc links) */
+.menu__list-item-collapsible .menu__link--active,
+.menu__link--sublist.menu__link--active {
+  box-shadow: none;
+  background: none !important;
+  color: var(--vb-gold) !important;
+}
+
+/* Quitar borde derecho del contenedor sidebar */
+.theme-doc-sidebar-container {
+  border-right: none !important;
+}
+
+[data-theme='dark'] .menu__link {
+  color: #cbd5e1;
+}
+[data-theme='dark'] .menu__link--active {
+  background: rgba(123,158,212,0.15) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MAIN CONTENT AREA
+   ═══════════════════════════════════════════════════════ */
+.main-wrapper {
+  background: var(--vb-bg);
+}
+
+.theme-doc-markdown {
+  max-width: 860px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HEADINGS
+   ═══════════════════════════════════════════════════════ */
+article h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+  line-height: 1.2;
+}
+
+article h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+  border-bottom: 2px solid var(--vb-border);
+  padding-bottom: 8px;
+  margin-top: 2.5rem;
+}
+
+article h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--vb-primary);
+  margin-top: 2rem;
+}
+
+[data-theme='dark'] article h3 {
+  color: var(--ifm-color-primary-lightest);
+}
+
+article h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+/* ═══════════════════════════════════════════════════════
+   TABLES — estilo card, como en visitbogota.co
+   ═══════════════════════════════════════════════════════ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  margin: 1.5rem 0;
+  font-size: 14px;
+}
+
+thead tr {
+  background: var(--vb-primary);
+  color: #fff;
+}
+
+thead th {
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+  border: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--vb-bg);
+}
+
+tbody tr:hover {
+  background: rgba(53, 73, 142, 0.05);
+}
+
+tbody td {
+  padding: 10px 16px;
+  border: none;
+  border-bottom: 1px solid var(--vb-border);
+  vertical-align: top;
+}
+
+[data-theme='dark'] thead tr {
+  background: var(--vb-navy-dark);
+}
+
+/* ═══════════════════════════════════════════════════════
+   CODE BLOCKS
+   ═══════════════════════════════════════════════════════ */
+.prism-code {
+  border-radius: 12px !important;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+/* Inline code */
+code {
+  background: rgba(53, 73, 142, 0.08);
+  color: var(--vb-primary);
+  border: 1px solid rgba(53, 73, 142, 0.15);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.88em;
+  font-weight: 500;
+}
+
+[data-theme='dark'] code {
+  background: rgba(123,158,212,0.12);
+  color: #93c5fd;
+  border-color: rgba(123,158,212,0.2);
+}
+
+/* ═══════════════════════════════════════════════════════
+   ADMONITIONS (:::note, :::caution)
+   ═══════════════════════════════════════════════════════ */
+.alert {
+  border-radius: 12px;
+  border-left-width: 4px;
+  font-size: 14.5px;
+}
+
+.alert--info {
+  border-left-color: var(--vb-accent);
+  background: rgba(63, 137, 222, 0.07);
+}
+
+.alert--warning {
+  border-left-color: var(--vb-gold);
+  background: rgba(250, 197, 51, 0.08);
+}
+
+.alert--danger {
+  border-left-color: #e74c3c;
+  background: rgba(231, 76, 60, 0.07);
+}
+
+/* ═══════════════════════════════════════════════════════
+   BREADCRUMBS
+   ═══════════════════════════════════════════════════════ */
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--vb-primary);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════
+   PREV / NEXT NAVIGATION
+   ═══════════════════════════════════════════════════════ */
+.pagination-nav__link {
+  border: 1px solid var(--vb-border);
+  border-radius: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--vb-primary);
+  box-shadow: 0 2px 12px rgba(53, 73, 142, 0.12);
+  text-decoration: none;
+}
+
+.pagination-nav__sublabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--vb-muted);
+}
+
+.pagination-nav__label {
+  font-weight: 600;
+  color: var(--vb-primary);
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════ */
+.footer {
+  background: var(--vb-navy-dark);
+}
+
+.footer__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--vb-gold) !important;
+}
+
+.footer__link-item {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.65) !important;
+  transition: color 0.15s;
+}
+
+.footer__link-item:hover {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer__copyright {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ═══════════════════════════════════════════════════════
+   TOC (Table of contents — derecha)
+   ═══════════════════════════════════════════════════════ */
+.table-of-contents {
+  font-size: 13px;
+}
+
+.table-of-contents__link {
+  color: var(--vb-muted);
+  transition: color 0.15s;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--vb-primary) !important;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════
+   DOC ARTICLE CARD WRAPPER
+   ═══════════════════════════════════════════════════════ */
+.theme-doc-markdown {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 48px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+[data-theme='dark'] .theme-doc-markdown {
+  background: var(--vb-bg-card);
+}
+
+@media (max-width: 768px) {
+  .theme-doc-markdown {
+    padding: 24px 20px;
+    border-radius: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   HOMEPAGE REDIRECT PLACEHOLDER
+   ═══════════════════════════════════════════════════════ */
+.hero {
+  background: linear-gradient(135deg, var(--vb-navy) 0%, var(--vb-navy-dark) 100%);
+  color: #fff;
+}
+
+.hero__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.hero__subtitle {
+  color: rgba(255,255,255,0.8);
+  font-weight: 400;
+}
+
+/* Badge gold */
+.badge--gold {
+  background: var(--vb-gold);
+  color: var(--vb-dark);
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 3px 10px;
+  font-size: 12px;
+}
