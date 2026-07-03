@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkappvisitbogota_docs=self.webpackChunkappvisitbogota_docs||[]).push([["668"],{6569(s,e,a){a.r(e),a.d(e,{default:()=>i});var r=a(4848);a(6540);var t=a(4164),c=a(4308),o=a(8287),p=a(2831),u=a(1085);function i(s){return(0,r.jsx)(c.e3,{className:(0,t.A)(o.G.wrapper.docsPages),children:(0,r.jsx)(u.A,{children:(0,p.v)(s.route.routes)})})}}}]);
